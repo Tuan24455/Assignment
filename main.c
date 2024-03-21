@@ -25,7 +25,7 @@ int getUserChoice() {
         printf("====================================================\n");
         printf("Chon mot lua chon (1-8): ");
         scanf("%d", &choice);
-        getchar();  // –?c k˝ t? newline t? l?nh scanf tru?c dÛ
+        getchar();  
         if (choice < 1 || choice > 8) {
             printf("Lua chon khong hop le. Vui long nhap lai!\n");
         }
@@ -60,12 +60,12 @@ void addCar(struct Car cars[], int *pn) {
     printf("\nNhap thong tin ve xe:\n");
     printf("Nhap model: ");
     fgets(newCar.model, sizeof(newCar.model), stdin);
-    newCar.model[strcspn(newCar.model, "\n")] = '\0';  // XÛa k˝ t? newline t? fgets
+    newCar.model[strcspn(newCar.model, "\n")] = '\0';  
     printf("Nhap nam san xuat: ");
     scanf("%d", &newCar.year);
     printf("Nhap gia: ");
     scanf("%f", &newCar.price);
-    getchar();  // –?c k˝ t? newline t? l?nh scanf tru?c dÛ
+    getchar();  
 
     cars[*pn] = newCar;
     (*pn)++;
@@ -92,12 +92,12 @@ void updateCar(struct Car cars[], int n, char model[]) {
     printf("\nCap nhat thong tin ve xe:\n");
     printf("Nhap model moi: ");
     fgets(cars[index].model, sizeof(cars[index].model), stdin);
-    cars[index].model[strcspn(cars[index].model, "\n")] = '\0';  // XÛa k˝ t? newline t? fgets
+    cars[index].model[strcspn(cars[index].model, "\n")] = '\0'; 
     printf("Nhap nam san xuat moi: ");
     scanf("%d", &cars[index].year);
     printf("Nhap gia moi: ");
     scanf("%f", &cars[index].price);
-    getchar();  // –?c k˝ t? newline t? l?nh scanf tru?c dÛ
+    getchar();  // √ê?c k√Ω t? newline t? l?nh scanf tru?c d√≥
 
     printf("Cap nhat thong tin xe thanh cong.\n");
 }
@@ -171,7 +171,7 @@ int main() {
                 char model[50];
                 printf("\nNhap model xe can tim: ");
                 fgets(model, sizeof(model), stdin);
-                model[strcspn(model, "\n")] = '\0';  // XÛa k˝ t? newline t? fgets
+                model[strcspn(model, "\n")] = '\0'; 
                 int index = searchCar(cars, carCount, model);
                 if (index == -1) {
                     printf("Khong tim thay xe co model \"%s\".\n", model);
@@ -185,7 +185,7 @@ int main() {
                 char model[50];
                 printf("\nNhap model xe can cap nhat: ");
                 fgets(model, sizeof(model), stdin);
-                model[strcspn(model, "\n")] = '\0';  // XÛa k˝ t? newline t? fgets
+                model[strcspn(model, "\n")] = '\0';  
                 updateCar(cars, carCount, model);
                 break;
             }
@@ -193,7 +193,7 @@ int main() {
                 char model[50];
                 printf("\nNhap model xe can xoa: ");
                 fgets(model, sizeof(model), stdin);
-                model[strcspn(model, "\n")] = '\0';  // XÛa k˝ t? newline t? fgets
+                model[strcspn(model, "\n")] = '\0';
                 removeCar(cars, &carCount, model);
                 break;
             }
